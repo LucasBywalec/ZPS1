@@ -23,14 +23,16 @@ app.get('/', (req, res) => {
         function cancelVideo(){
           let element = document.getElementById('videoPlayer');
           element.src = "cancel.mp4";
-        }`
+        }
+      </script>`
     }
 
     if(videoFile != undefined)
     {
       sentText += `<video id=videoPlayer src="${videoFile}"> </video>`
       sentText += 
-      `function cancelAudio(){
+      `<script>
+        function cancelAudio(){
           let element = document.getElementById('audioPlayer');
           element.src = "cancel.mp3";
         }
