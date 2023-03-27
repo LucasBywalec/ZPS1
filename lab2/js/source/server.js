@@ -17,17 +17,35 @@ app.get('/', (req, res) => {
 
     if(audioFile != undefined)
     {
-      sentText += `<audio id=audioPlayer src= ${audioFile} > </audio>`
+      sentText += `<audio id=audioPlayer src="${audioFile}"> </audio>`
     }
 
     if(videoFile != undefined)
     {
-      sentText += `<video id=videoPlayer src= ${videoFile} > </video>`
+      sentText += `<video id=videoPlayer src="${videoFile}"> </video>`
     }
 
     if(imgFile != undefined){
-      sentText +=  `<img id=${posterImage} src=${imgFile}></img>`
+      sentText +=  `<img id="posterImage" src=$"${imgFile}"></img>`
     }
+
+    sentText += `<button id="videoCancel" onClick="${cancelVideo()}"></button>`
+    sentText += `<button id="audioCancel" onClick="${cancelAudio()}"></button>`
+
+
+    sentText += 
+    `<script>
+      const cancelVideo = () => {
+        let element = document.getElementById('videoCancel');
+        element.src = "cancel.mp4";
+      }
+
+      const cancelAudio = () => {
+        let element = document.getElementById('audioCancel');
+        element.src = "cancel.mp3";
+      }
+    </script>`
+
     res.send(sentText);
 })
 
