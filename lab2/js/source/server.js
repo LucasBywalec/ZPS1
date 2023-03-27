@@ -10,18 +10,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    let sentText = "";
+    let sentText = ``;
     let audioFile = req.query.audioFile;
     let videoFile = req.query.videoFile;
+    let imgFile = req.query.imgFile;
 
     if(audioFile != undefined)
     {
-      sentText += `<audio id=audioPlayer src=` + audioFile + `> </audio>`
+      sentText += `<audio id=audioPlayer src= ${audioFile} > </audio>`
     }
 
     if(videoFile != undefined)
     {
-      sentText += `<video id=videoPlayer src=` + videoFile + `> </video>`
+      sentText += `<video id=videoPlayer src= ${videoFile} > </video>`
+    }
+
+    if(imgFile != undefined){
+      sentText +=  `<img id=${posterImage} src=${imgFile}></img>`
     }
     res.send(sentText);
 })
