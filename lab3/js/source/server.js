@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
     if(audioFile != undefined)
     {
       sentText += `<audio id=audioPlayer src="${audioFile}"> </audio>`
+      sentText += `<button id="videoCancel" onClick="cancelVideo()">VIDEO</button>`
       sentText += 
       `<script>
         function cancelVideo(){
@@ -30,6 +31,7 @@ app.get('/', (req, res) => {
     if(videoFile != undefined)
     {
       sentText += `<video id=videoPlayer src="${videoFile}"> </video>`
+      sentText += `<button id="audioCancel" onClick="cancelAudio()">AUDIO</button>`
       sentText += 
       `<script>
         function cancelAudio(){
@@ -42,9 +44,6 @@ app.get('/', (req, res) => {
     if(imgFile != undefined){
       sentText +=  `<img id="posterImage" src="${imgFile}"></img>`
     }
-
-    sentText += `<button id="videoCancel" onClick="cancelVideo()">VIDEO</button>`
-    sentText += `<button id="audioCancel" onClick="cancelAudio()">AUDIO</button>`
 
     res.send(sentText);
 })
